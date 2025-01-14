@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Inge meteo</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+
+    <script src="script.js" defer></script>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KSM69KXQD7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KSM69KXQD7');
+</script>
+<body>
+
+<div class="title">
+    <h1>Inge Meteo</h1>
+</div>
+
+<form onsubmit="getWeather(event)">
+    <br><br><br><br>
+    <div class="input">
+        <b><label for="city">Inserisci la località:</label></b>
+        <div class="city&but">
+            <b><input class="city-name" type="text" id="city" name="city"></b>
+            <button class="button" type="submit">Cerca</button>
+        </div>
+    </div>
+    <br>
+    <a class="link" href="mappa.html">Guarda la mappa</a>
+    <div class="output">
+        <!-- Output delle informazioni meteo attuali -->
+        <div id="weather-info"></div>
+        
+        <!-- Output delle previsioni per i giorni successivi -->
+        <div id="forecast-info"></div>
+        
+    </div>
+    <p></p>
+    
+    <p id="disclaimer-title" class="dis-t" style="display:none;"><b>Disclaimer:</b></p>
+    <p id="disclaimer-text" class="dis" style="display:none;">Le previsioni meteorologiche fornite su questo sito sono basate sui dati ottenuti tramite l'API di OpenWeatherMap. Nonostante l'affidabilità della fonte, le previsioni meteo possono variare e non possiamo garantire la completa esattezza delle informazioni presentate. Pertanto, decliniamo ogni responsabilità per eventuali danni o perdite derivanti dall'uso delle previsioni fornite su questo sito. Si consiglia di consultare fonti aggiuntive e di utilizzare il proprio giudizio per decisioni critiche legate alle condizioni meteorologiche.</p>
+    <footer class="fine">
+        <a href="https://github.com/ingegnere-09" target="_blank"><img class="img-git" src="img/GitHub.png"></a>
+        <a href="https://www.instagram.com/ingegnere_09/" target="_blank"><img class="img-insta" src="img/insta.png"></a>
+        <a href="https://www.threads.net/@ingegnere_09" target="_blank"><img class="img-tread" src="img/tread.png"></a>
+        <a href="https://discord.gg/WVWQq7CuhR" target="_blank"><img class="img-dis" src="img/discord.png"></a>
+        <a href="mailto:berrettagregorio@gmail.com" target="_blank"><img class="img-mail" src="img/mail.png"></a>
+    </footer>
+</form>
+</body>
+</html>
