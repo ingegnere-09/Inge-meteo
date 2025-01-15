@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <title>Inge meteo</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="icon" href="image.png" type="image/x-icon">
+    <link rel="icon" href="https://i.ibb.co/L1kSb1Y/image-1.png" type="image/x-icon">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
-
+ 
     <script src="script.js" defer></script>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -46,6 +46,30 @@
         
     </div>
     <p></p>
+
+    <div class="pol">
+        <h5 class="pol-sc1">Visitando questo sito accetti: <a href="term.html" class="pol-sc1">termini e condizioni</a></h5>
+        <div class="buttin">
+            <div class="box">A</div>
+            <div class="box">C</div>
+            <div class="box">C</div>
+            <div class="box">E</div>
+            <div class="box">T</div>
+            <div class="box">T</div>
+            <div class="box">O</div>
+        </div>
+    </div>
+    
+    <script>
+        // JavaScript incluso direttamente nell'HTML
+        document.addEventListener('DOMContentLoaded', function() {
+            const polDiv = document.querySelector('.pol');
+
+            polDiv.addEventListener('click', function() {
+                polDiv.classList.add('hidden');
+            });
+        });
+    </script>
     
     <p id="disclaimer-title" class="dis-t" style="display:none;"><b>Disclaimer:</b></p>
     <p id="disclaimer-text" class="dis" style="display:none;">Le previsioni meteorologiche fornite su questo sito sono basate sui dati ottenuti tramite l'API di OpenWeatherMap. Nonostante l'affidabilità della fonte, le previsioni meteo possono variare e non possiamo garantire la completa esattezza delle informazioni presentate. Pertanto, decliniamo ogni responsabilità per eventuali danni o perdite derivanti dall'uso delle previsioni fornite su questo sito. Si consiglia di consultare fonti aggiuntive e di utilizzare il proprio giudizio per decisioni critiche legate alle condizioni meteorologiche.</p>
