@@ -14,11 +14,6 @@ body {
     background-size: flex;
 }
 
-b:hover {
-    filter: drop-shadow(0px 0px 10px rgb(0, 173, 95));
-    text-shadow: 0px 0px 30px rgb(0, 173, 95);
-}
-
 .title :first-child {
     margin-top: 0px;
     background-color: rgb(0, 173, 95);
@@ -231,15 +226,15 @@ iframe {
     border-radius: 15px;
     left: 30%;
     text-align: center !important;
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 0, 0.5);
     border: 4px solid  rgba(249, 249, 249);
     cursor: pointer; /* Indica che è cliccabile */
     opacity: 1; /* Opacità iniziale */
-    transition: opacity 0.5s ease; /* Transizione per l'effetto di opacità */
+    transition: opacity 0.5xs ease; /* Transizione per l'effetto di opacità */
 }
 .pol:hover{
     transition: all 0.3s;
-    filter: drop-shadow(0px 0px 10px rgb(0, 173, 95));
+    filter: drop-shadow(0px 0px 10px rgb(0, 192, 106));
 }
 
 .pol.hidden {
@@ -289,7 +284,8 @@ iframe {
 .buttin {
     display: flex;
     justify-content: center;
-    padding: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
   }
   
   .box {
@@ -304,7 +300,8 @@ iframe {
     transition: all .8s;
     cursor: pointer;
     position: relative;
-    background: rgb(0, 173, 95);
+    /*background: rgb(0, 173, 95);*/
+    background: RGB(249, 249, 249);
     overflow: hidden;
   }
   
@@ -312,7 +309,7 @@ iframe {
     content: "W";
     position: absolute;
     top: 0;
-    background: rgba(13, 37, 22);
+    background: RGB(0, 87, 48);
     color: rgb(249, 249, 249);
     width: 100%;
     height: 100%;
