@@ -42,7 +42,6 @@ function getWeather(event) {
                 <h3>Velocità del vento: ${wind_speed} m/s</h3>
                 <h3>Direzione del vento: ${wind_direction}°</h3>
                 <h3>Condizioni meteo: ${description}</h3>
-                <p><a class="down" href="https://mega.nz/file/pQokxSAI#8cb1MIkvnsV76zlLN3zAUbznrKZVF9ZB79PY9wZy0LU">Clicca qui per scaricare l'app</a></p>
                 <hr>
             `;
 
