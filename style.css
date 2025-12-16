@@ -217,20 +217,19 @@ iframe {
 }
 
 .pol {
-    transition: all 0.5s;
-    position: fixed !important;
+    position: absolute;
     bottom: 15%;
-    width: 40%;
-    padding-left: 10px;
-    padding-right: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 150px;
+    padding: 0 10px;
     border-radius: 15px;
-    left: 30%;
-    text-align: center !important;
+    border: 4px solid rgba(249, 249, 249);
+
     background-color: rgba(0, 0, 0, 0.5);
-    border: 4px solid  rgba(249, 249, 249);
-    cursor: pointer; /* Indica che è cliccabile */
-    opacity: 1; /* Opacità iniziale */
-    transition: opacity 0.5xs ease; /* Transizione per l'effetto di opacità */
+    text-align: center;
+    cursor: pointer;
 }
 .pol:hover{
     transition: all 0.3s;
