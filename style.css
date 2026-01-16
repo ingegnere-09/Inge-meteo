@@ -1,6 +1,7 @@
 * {
     text-align: center;
     font-family: "Lexend", serif;
+    
 }
 
 body {
@@ -8,10 +9,10 @@ body {
     padding: 0;
     background-image:url(new_sf_or.png);
     background-attachment: fixed;
-    background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: flex;
+    background-size: cover;
+    background-color: #0f0f0f
 }
 
 .title :first-child {
