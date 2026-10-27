@@ -1,86 +1,116 @@
 <!DOCTYPE html>
-<html>
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inge meteo</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="theme-color" content="#101827">
+    <title>Inge Meteo · Il tempo, a colpo d'occhio</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="icon" href="https://i.ibb.co/L1kSb1Y/image-1.png" type="image/x-icon">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
- 
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="script.js" defer></script>
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-7QL8NKPMK1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-7QL8NKPMK1');
-</script>
-
-<div class="title">
-    <h1>Inge Meteo</h1>
-</div>
-
-<form onsubmit="getWeather(event)">
-    <br><br><br><br>
-    <div class="input">
-        <b><label for="city">Inserisci la località:</label></b>
-        <div class="city&but">
-            <b><input class="city-name" type="text" id="city" name="city"></b>
-            <button class="button" type="submit">Cerca</button>
-        </div>
-    </div>
-    <br>
-    <a class="link" href="mappa.html">Guarda la mappa</a>
-    <div class="output">
-        <!-- Output delle informazioni meteo attuali -->
-        <div id="weather-info"></div>
-        
-        <!-- Output delle previsioni per i giorni successivi -->
-        <div id="forecast-info"></div>
-        
-    </div>
-    <p></p>
-
-    <div class="pol">
-        <h5 class="pol-sc1">Visitando questo sito accetti: <a href="term.html" class="pol-sc1">termini e condizioni</a></h5>
-        <div class="buttin">
-            <div class="box">A</div>
-            <div class="box">C</div>
-            <div class="box">C</div>
-            <div class="box">E</div>
-            <div class="box">T</div>
-            <div class="box">T</div>
-            <div class="box">O</div>
-        </div>
-    </div>
-    
+<body data-weather="clear">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7QL8NKPMK1"></script>
     <script>
-        // JavaScript incluso direttamente nell'HTML
-        document.addEventListener('DOMContentLoaded', function() {
-            const polDiv = document.querySelector('.pol');
-
-            polDiv.addEventListener('click', function() {
-                polDiv.classList.add('hidden');
-            });
-        });
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-7QL8NKPMK1');
     </script>
-    
-    <p id="disclaimer-title" class="dis-t" style="display:none;"><b>Disclaimer:</b></p>
-    <p id="disclaimer-text" class="dis" style="display:none;">Le previsioni meteorologiche fornite su questo sito sono basate sui dati ottenuti tramite l'API di OpenWeatherMap. Nonostante l'affidabilità della fonte, le previsioni meteo possono variare e non possiamo garantire la completa esattezza delle informazioni presentate. Pertanto, decliniamo ogni responsabilità per eventuali danni o perdite derivanti dall'uso delle previsioni fornite su questo sito. Si consiglia di consultare fonti aggiuntive e di utilizzare il proprio giudizio per decisioni critiche legate alle condizioni meteorologiche.</p>
-    <footer class="fine">
-        <a href="https://github.com/ingegnere-09" target="_blank"><img class="img-git" src="img/GitHub.png"></a>
-        <a href="https://www.instagram.com/ingegnere_09/" target="_blank"><img class="img-insta" src="img/insta.png"></a>
-        <a href="https://www.threads.net/@ingegnere_09" target="_blank"><img class="img-tread" src="img/tread.png"></a>
-        <a href="https://discord.gg/WVWQq7CuhR" target="_blank"><img class="img-dis" src="img/discord.png"></a>
-        <a href="mailto:berrettagregorio@gmail.com" target="_blank"><img class="img-mail" src="img/mail.png"></a>
-    </footer>
-</form>
+
+    <div class="weather-scene" aria-hidden="true">
+        <span class="scene-orb"></span>
+        <span class="scene-cloud scene-cloud-one"></span>
+        <span class="scene-cloud scene-cloud-two"></span>
+        <span class="scene-rain"></span>
+    </div>
+
+    <header class="topbar">
+        <a class="brand" href="index.html" aria-label="Inge Meteo, pagina iniziale">
+            <span class="brand-mark" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none">
+                    <path d="M5 22.5 12.2 9l5.4 10 3.2-5.8 6.2 9.3H5Z" />
+                    <path d="M8.2 26h15.6M11.5 5.5h9" />
+                </svg>
+            </span>
+            <span>inge<span class="brand-light">meteo</span></span>
+        </a>
+        <nav class="topbar-nav" aria-label="Navigazione principale">
+            <a class="map-nav-link" href="mappa.html">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="m3.5 6.2 5.6-2 5.8 2 5.6-2v13.6l-5.6 2-5.8-2-5.6 2V6.2Z" />
+                    <path d="M9.1 4.2v13.6m5.8-11.6v13.6" />
+                </svg>
+                <span>Mappa meteo</span>
+            </a>
+            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Attiva tema chiaro"></button>
+        </nav>
+    </header>
+
+    <div class="app-layout">
+        <aside class="sidebar" aria-label="Città salvate e ricerche recenti">
+            <section class="sidebar-section">
+                <div class="sidebar-heading">
+                    <h2>Preferite</h2>
+                    <span aria-hidden="true">★</span>
+                </div>
+                <div id="favorites-list" class="city-list"></div>
+            </section>
+            <section class="sidebar-section recent-section">
+                <div class="sidebar-heading">
+                    <h2>Ultime ricerche</h2>
+                    <span aria-hidden="true">↺</span>
+                </div>
+                <div id="recent-list" class="city-list"></div>
+            </section>
+            <a class="sidebar-map-link" href="mappa.html"><span aria-hidden="true">⌖</span> Apri la mappa</a>
+        </aside>
+
+        <main class="main-content">
+            <section class="welcome">
+                <p class="eyebrow">IL METEO, A COLPO D'OCCHIO</p>
+                <h1>Che tempo fa <span>oggi?</span></h1>
+                <p class="welcome-copy">Previsioni e condizioni aggiornate, ovunque tu sia.</p>
+            </section>
+
+            <form id="weather-form" class="search-form" onsubmit="getWeather(event)">
+                <label for="city">Cerca una città</label>
+                <div class="search-box">
+                    <span class="search-icon" aria-hidden="true">⌕</span>
+                    <input class="city-name" type="search" id="city" name="city" placeholder="Es. Milano, Roma…" autocomplete="off" required>
+                    <button class="button" type="submit">Cerca <span aria-hidden="true">→</span></button>
+                    <div id="search-suggestions" class="search-suggestions" role="group" aria-label="Ultime città cercate" hidden></div>
+                </div>
+                <p id="search-status" class="search-status" role="status" aria-live="polite">Cerca una città per vedere le previsioni.</p>
+            </form>
+
+            <section class="weather-results" aria-live="polite">
+                <div id="weather-info"></div>
+                <div id="forecast-info"></div>
+            </section>
+
+            <section class="disclaimer">
+                <h2 id="disclaimer-title" hidden>Un promemoria</h2>
+                <p id="disclaimer-text" hidden>Le previsioni meteorologiche fornite su questo sito sono basate sui dati ottenuti tramite l'API di OpenWeatherMap. Nonostante l'affidabilità della fonte, le previsioni meteo possono variare e non possiamo garantire la completa esattezza delle informazioni presentate. Pertanto, decliniamo ogni responsabilità per eventuali danni o perdite derivanti dall'uso delle previsioni fornite su questo sito. Si consiglia di consultare fonti aggiuntive e di utilizzare il proprio giudizio per decisioni critiche legate alle condizioni meteorologiche.</p>
+            </section>
+
+            <section class="pol">
+                <p>Visitando questo sito accetti i <a href="term.html">termini e condizioni</a>.</p>
+                <button class="accept-animation" type="button">Ho capito</button>
+            </section>
+
+            <footer class="fine" aria-label="Contatti e social">
+                <a href="https://github.com/ingegnere-09" target="_blank" rel="noreferrer" aria-label="GitHub"><img src="img/GitHub.png" alt=""></a>
+                <a href="https://www.instagram.com/ingegnere_09/" target="_blank" rel="noreferrer" aria-label="Instagram"><img src="img/insta.png" alt=""></a>
+                <a href="https://www.threads.net/@ingegnere_09" target="_blank" rel="noreferrer" aria-label="Threads"><img src="img/tread.png" alt=""></a>
+                <a href="https://discord.gg/WVWQq7CuhR" target="_blank" rel="noreferrer" aria-label="Discord"><img src="img/discord.png" alt=""></a>
+                <a href="mailto:berrettagregorio@gmail.com" aria-label="Email"><img src="img/mail.png" alt=""></a>
+            </footer>
+        </main>
+    </div>
 </body>
 </html>
