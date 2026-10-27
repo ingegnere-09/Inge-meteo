@@ -1,51 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title class="tit-2">Termini e condizioni</title>
-  <link rel="icon" href="https://i.ibb.co/L1kSb1Y/image-1.png" type="image/x-icon">
-  <link rel="stylesheet" type="text/css" href="style.css">
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#101827">
+    <title>Termini e condizioni · Inge Meteo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://i.ibb.co/L1kSb1Y/image-1.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        try {
+            if (JSON.parse(localStorage.getItem('inge-meteo-theme') || '"dark"') === 'light') {
+                document.documentElement.dataset.theme = 'light';
+            }
+        } catch {
+            document.documentElement.dataset.theme = 'dark';
+        }
+    </script>
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-7QL8NKPMK1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<body class="legal-page">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7QL8NKPMK1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-7QL8NKPMK1');
+    </script>
 
-  gtag('config', 'G-7QL8NKPMK1');
-</script>
-<body>
-<div class="title">
-  <h1>
-    Termini e condizioni:
-  </h1>
-</div>
-<h4 style="text-align: left; color: rgb(249, 249, 249); line-height: 1.5; padding: 1px; margin-left: 2.5%; margin-right: 2.5%; margin-top: 90px;">
-    Questo sito utilizza cookie esclusivamente per scopi statistici e tecnici. Alcuni cookie sono generati dal servizio di hosting 
-    <strong>Vercel</strong> per garantire il corretto funzionamento del sito e l'ottimizzazione delle prestazioni. 
-    Altri cookie, come quelli di <strong>Google Analytics</strong>, raccolgono dati anonimi sulle visite e sul comportamento degli utenti per migliorare la navigazione 
-    e comprendere meglio come viene utilizzato il sito. <br><br>
-    Tieni presente che i cookie utilizzati non raccolgono informazioni personali identificabili né sono utilizzati per fini pubblicitari. 
-    Se desideri ulteriori informazioni o hai domande sui cookie utilizzati da questo sito, 
-    non esitare a <a href="mailto:berrettagregorio@gmail.com" style="color: #007BFF; text-decoration: none;">contattarmi via email</a>. <br><br>
-    Utilizzando questo sito, accetti implicitamente l'uso di questi cookie. In alternativa, puoi configurare il tuo browser per 
-    rifiutare i cookie o eliminarli in qualsiasi momento.
-</h4>
-<h2>
-    
-</h2>
+    <header class="topbar">
+        <a class="brand" href="index.html" aria-label="Inge Meteo, pagina iniziale">
+            <span class="brand-mark" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none">
+                    <path d="M5 22.5 12.2 9l5.4 10 3.2-5.8 6.2 9.3H5Z" />
+                    <path d="M8.2 26h15.6M11.5 5.5h9" />
+                </svg>
+            </span>
+            <span>inge<span class="brand-light">meteo</span></span>
+        </a>
+        <nav class="topbar-nav" aria-label="Navigazione">
+            <a class="legal-back" href="index.html" aria-label="Torna alla pagina meteo">
+                <span aria-hidden="true">←</span><span class="back-label">Torna al meteo</span>
+            </a>
+        </nav>
+    </header>
 
-<h2>
-  <a class="link" href="index.html">  ⟸ Torna indietro</a>
-</h2>
+    <main class="legal-content">
+        <header class="legal-heading">
+            <p class="eyebrow">INFORMAZIONI IMPORTANTI</p>
+            <h1>Termini e <span>condizioni</span></h1>
+            <p>Un riepilogo chiaro di come funziona Inge Meteo e dei servizi utilizzati.</p>
+        </header>
 
+        <div class="legal-notice">
+            <span class="notice-mark" aria-hidden="true">i</span>
+            <p>Usando il sito puoi consultare le informazioni meteo e la mappa. Le previsioni sono indicative e i servizi esterni sono soggetti anche alle condizioni dei rispettivi fornitori.</p>
+        </div>
+
+        <div class="legal-sections">
+            <section class="legal-card">
+                <span class="legal-number">01</span>
+                <div>
+                    <h2>Informazioni meteo</h2>
+                    <p>Le condizioni attuali e le previsioni sono recuperate da OpenWeatherMap; la mappa interattiva è fornita da Windy. Dati e previsioni possono essere incompleti, ritardati o cambiare senza preavviso: non sono una garanzia delle condizioni reali e non sostituiscono gli avvisi ufficiali.</p>
+                    <p>Per decisioni che riguardano sicurezza, viaggi o attività all'aperto, verifica sempre le comunicazioni delle autorità e dei servizi meteorologici ufficiali.</p>
+                </div>
+            </section>
+
+            <section class="legal-card">
+                <span class="legal-number">02</span>
+                <div>
+                    <h2>Uso del sito</h2>
+                    <p>Puoi usare Inge Meteo per consultare le informazioni disponibili e navigare la mappa. Sei responsabile delle decisioni prese sulla base dei dati mostrati. Il sito è offerto così com'è e la disponibilità delle funzioni può dipendere dalla connessione, dal browser o dai servizi esterni.</p>
+                </div>
+            </section>
+
+            <section class="legal-card">
+                <span class="legal-number">03</span>
+                <div>
+                    <h2>Preferiti e ricerche recenti</h2>
+                    <p>Le città preferite, le ultime ricerche e la scelta del tema vengono conservate nella memoria locale del browser, così da ritrovarle alla visita successiva. Queste preferenze non richiedono un account e possono essere rimosse cancellando i dati del sito dal browser. Se la memoria locale è disabilitata o piena, il salvataggio potrebbe non essere disponibile.</p>
+                </div>
+            </section>
+
+            <section class="legal-card">
+                <span class="legal-number">04</span>
+                <div>
+                    <h2>Servizi esterni, cookie e statistiche</h2>
+                    <p>Per mostrare le previsioni e la mappa, il browser comunica con OpenWeatherMap e Windy. Il sito include inoltre Google Analytics per le statistiche di utilizzo e viene ospitato tramite Vercel. Questi fornitori possono trattare dati tecnici di connessione secondo le proprie informative e impostazioni.</p>
+                    <p>Le preferenze salvate dal sito restano nel browser. Per informazioni sul trattamento effettuato dai servizi esterni o per gestire i cookie, consulta le rispettive informative e le impostazioni del browser.</p>
+                </div>
+            </section>
+
+            <section class="legal-card">
+                <span class="legal-number">05</span>
+                <div>
+                    <h2>Link e contenuti di terze parti</h2>
+                    <p>Il sito può rimandare a pagine o servizi esterni. Tali contenuti sono gestiti dai rispettivi titolari; Inge Meteo non ne controlla disponibilità, aggiornamento o informative. L'apertura di un link esterno è una scelta dell'utente.</p>
+                </div>
+            </section>
+
+            <section class="legal-card">
+                <span class="legal-number">06</span>
+                <div>
+                    <h2>Contatti e aggiornamenti</h2>
+                    <p>Queste informazioni possono essere aggiornate quando cambiano il sito o i servizi collegati. Per domande o segnalazioni, scrivi a <a href="mailto:berrettagregorio@gmail.com">berrettagregorio@gmail.com</a>.</p>
+                    <p class="legal-updated">Ultimo aggiornamento: ottobre 2026</p>
+                </div>
+            </section>
+        </div>
+
+        <a class="legal-home-link" href="index.html"><span aria-hidden="true">←</span> Torna alla pagina meteo</a>
+        <footer class="legal-footer">Inge Meteo <span aria-hidden="true">·</span> Previsioni da consultare con consapevolezza</footer>
+    </main>
 </body>
 </html>
