@@ -993,6 +993,16 @@ body[data-weather="snow"] .scene-rain {
     text-align: left;
 }
 
+.weather-summary {
+    position: relative;
+    z-index: 1;
+    margin: 20px 0 0;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.7;
+    text-align: left;
+}
+
 .favorite-toggle {
     position: absolute;
     right: 28px;
