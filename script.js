@@ -4,10 +4,11 @@ const RECENTS_KEY = 'inge-meteo-recents';
 const THEME_KEY = 'inge-meteo-theme';
 const MAX_RECENTS = 5;
 
-const docTitle = document.title;
+let currentPageTitle = document.title;
 const cityInput = document.getElementById('city');
 const weatherInfo = document.getElementById('weather-info');
 const forecastInfo = document.getElementById('forecast-info');
+const metaDescription = document.querySelector('meta[name="description"]');
 const favoritesList = document.getElementById('favorites-list');
 const recentList = document.getElementById('recent-list');
 const searchSuggestions = document.getElementById('search-suggestions');
@@ -17,7 +18,7 @@ window.addEventListener('blur', () => {
     document.title = 'Torna presto a vedere il meteo';
 });
 window.addEventListener('focus', () => {
-    document.title = docTitle;
+    document.title = currentPageTitle;
 });
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -68,6 +69,7 @@ async function getWeather(event) {
         const weather = await weatherResponse.json();
         const canonicalCity = weather.name;
         renderCurrentWeather(weather);
+        updatePageMetadata(weather);
         updateWeatherScene(weather.weather[0].main);
         const recentSaved = saveRecent(canonicalCity);
         renderFavorites();
@@ -117,6 +119,7 @@ function renderCurrentWeather(data) {
             <div><span>Pressione</span><strong class="pressure"></strong></div>
             <div><span>Direzione</span><strong class="wind-direction"></strong></div>
         </div>
+        <p class="weather-summary"></p>
         <button class="favorite-toggle" type="button" aria-pressed="false"></button>
     `;
 
@@ -132,11 +135,52 @@ function renderCurrentWeather(data) {
     card.querySelector('.pressure').textContent = `${data.main.pressure} hPa`;
     card.querySelector('.wind-direction').textContent =
         `${data.wind.deg === undefined ? '—' : `${data.wind.deg}°`}`;
+    card.querySelector('.weather-summary').textContent = generateWeatherSummary(data);
 
     const favoriteButton = card.querySelector('.favorite-toggle');
     favoriteButton.addEventListener('click', () => toggleFavorite(data.name));
     updateFavoriteButton(favoriteButton, data.name);
     weatherInfo.replaceChildren(card);
+}
+
+function updatePageMetadata(data) {
+    const city = data.name;
+    const description = data.weather[0].description;
+    const currentTemperature = Math.round(data.main.temp);
+    const minimumTemperature = Math.round(data.main.temp_min);
+    const maximumTemperature = Math.round(data.main.temp_max);
+    const windSpeed = data.wind.speed;
+    const title = `Meteo ${city} Oggi: Previsioni a colpo d'occhio - Inge Meteo`;
+
+    currentPageTitle = title;
+    document.title = title;
+    metaDescription.content =
+        `Meteo oggi a ${city}: ${description}, ${currentTemperature}°C attuali, ` +
+        `minima ${minimumTemperature}°C, massima ${maximumTemperature}°C e vento a ${windSpeed} m/s.`;
+}
+
+function generateWeatherSummary(data) {
+    const condition = data.weather[0].description;
+    const city = data.name;
+    const currentTemperature = Math.round(data.main.temp);
+    const minimumTemperature = Math.round(data.main.temp_min);
+    const maximumTemperature = Math.round(data.main.temp_max);
+    const windSpeed = data.wind.speed;
+    const windDirection = getWindDirection(data.wind.deg);
+
+    return `Oggi a ${city} il cielo è ${condition}. La temperatura attuale è di ` +
+        `${currentTemperature}°C, con valori rilevati tra ${minimumTemperature}°C e ` +
+        `${maximumTemperature}°C. Il vento soffia a ${windSpeed} m/s` +
+        `${windDirection ? ` da ${windDirection}` : ''}.`;
+}
+
+function getWindDirection(degrees) {
+    if (typeof degrees !== 'number' || !Number.isFinite(degrees)) return '';
+    const directions = [
+        'nord', 'nord-est', 'est', 'sud-est',
+        'sud', 'sud-ovest', 'ovest', 'nord-ovest'
+    ];
+    return directions[Math.round(degrees / 45) % directions.length];
 }
 
 function renderForecast(forecasts) {
